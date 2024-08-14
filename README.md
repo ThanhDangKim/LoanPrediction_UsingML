@@ -59,6 +59,11 @@ Potential improvements and further work include:
 - Experimenting with additional machine learning algorithms.
 - Fine-tuning hyperparameters for better model performance.
 - Exploring additional features or external data sources to enhance the model.
+
+## Author
+
+- Nguyễn Văn Hào
+- Đặng Kim Thành
   
 ## Contact us
 
