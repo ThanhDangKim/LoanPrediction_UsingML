@@ -1,0 +1,142 @@
+{
+  "sample_rows": 500,
+  "num_columns": 13,
+  "columns": {
+    "Id": {
+      "dtype": "int64",
+      "num_missing": 0,
+      "unique_sample": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "Income": {
+      "dtype": "int64",
+      "num_missing": 0,
+      "unique_sample": [
+        1303834,
+        7574516,
+        3991815,
+        6256451,
+        5768871
+      ]
+    },
+    "Age": {
+      "dtype": "int64",
+      "num_missing": 0,
+      "unique_sample": [
+        23,
+        40,
+        66,
+        41,
+        47
+      ]
+    },
+    "Experience": {
+      "dtype": "int64",
+      "num_missing": 0,
+      "unique_sample": [
+        3,
+        10,
+        4,
+        2,
+        11
+      ]
+    },
+    "Married/Single": {
+      "dtype": "object",
+      "num_missing": 0,
+      "unique_sample": [
+        "single",
+        "married"
+      ]
+    },
+    "House_Ownership": {
+      "dtype": "object",
+      "num_missing": 0,
+      "unique_sample": [
+        "rented",
+        "norent_noown",
+        "owned"
+      ]
+    },
+    "Car_Ownership": {
+      "dtype": "object",
+      "num_missing": 0,
+      "unique_sample": [
+        "no",
+        "yes"
+      ]
+    },
+    "Profession": {
+      "dtype": "object",
+      "num_missing": 0,
+      "unique_sample": [
+        "Mechanical_engineer",
+        "Software_Developer",
+        "Technical_writer",
+        "Civil_servant",
+        "Librarian"
+      ]
+    },
+    "CITY": {
+      "dtype": "object",
+      "num_missing": 0,
+      "unique_sample": [
+        "Rewa",
+        "Parbhani",
+        "Alappuzha",
+        "Bhubaneswar",
+        "Tiruchirappalli[10]"
+      ]
+    },
+    "STATE": {
+      "dtype": "object",
+      "num_missing": 0,
+      "unique_sample": [
+        "Madhya_Pradesh",
+        "Maharashtra",
+        "Kerala",
+        "Odisha",
+        "Tamil_Nadu"
+      ]
+    },
+    "CURRENT_JOB_YRS": {
+      "dtype": "int64",
+      "num_missing": 0,
+      "unique_sample": [
+        3,
+        9,
+        4,
+        2,
+        0
+      ]
+    },
+    "CURRENT_HOUSE_YRS": {
+      "dtype": "int64",
+      "num_missing": 0,
+      "unique_sample": [
+        13,
+        10,
+        12,
+        14,
+        11
+      ]
+    },
+    "Risk_Flag": {
+      "dtype": "int64",
+      "num_missing": 0,
+      "unique_sample": [
+        0,
+        1
+      ]
+    }
+  },
+  "class_balance_sample": {
+    "0": 403,
+    "1": 97
+  }
+}

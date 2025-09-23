@@ -1,8 +1,136 @@
-# LoanPrediction_UsingML
- 21110298_21110175_FinalProjectML_v2
+# Loan Prediction System – Multi-Agent & Machine Learning
 
-## Introduction
-This project aims to predict which customers are likely to default on their consumer loans. The organization has historical data on customer behavior, which is used to predict the risk level of new customers. The goal is to identify high-risk customers early, allowing the organization to make informed decisions.
+This repository integrates **multi-agent systems** and **machine learning models** to analyze, preprocess, and predict credit risk based on consumer loan datasets.  
+
+It consists of two complementary parts:  
+
+- **Part 1**: Multi-agent pipeline for dataset analysis, reporting, and code generation.  
+- **Part 2**: Machine learning pipeline for model training, evaluation, and prediction.  
+
+---
+
+## 📑 Table of Contents
+- [Part 1 – MultiAgent Loan Prediction System](#part-1--multiagent-loan-prediction-system)  
+  - [Overview](#-overview)  
+  - [Project Structure](#-project-structure)  
+  - [Key Components](#️-key-components)  
+  - [Workflow](#-workflow)  
+  - [Example Report](#-example-report)  
+- [Part 2 – Loan Prediction Using ML](#part-2--loan-prediction-using-ml)  
+  - [Introduction](#-introduction)  
+  - [About the Data](#-about-the-data)  
+  - [Project Structure](#-project-structure-1)  
+  - [Libraries Used](#-libraries-used)  
+  - [Steps Involved](#-steps-involved)  
+  - [Results](#-results)  
+  - [Future Work](#-future-work)  
+- [Authors & Contact](#-authors)  
+
+---
+
+## 📂 Project Structure
+
+```text
+├── Refer
+├── MultiAgent_LoanPredictionSystem.ipynb (Part 1)
+├── LoanPrediction_Dataset
+│ ├── Training Data.csv
+│ ├── Test Data.csv
+├── artifacts/
+│ ├── csv_summary.json
+│ ├── knowledge_package.json
+│ ├── pipeline_plan.json
+│ ├── generated_code.json
+│ ├── review_report.json
+│ ├── table_data.json
+│ ├── charts_info.json
+│ ├── final_report.json
+│ └── final_report.md
+├── LoanPrediction_FinalProjectML.ipynb (Part 2)
+└── README.md
+```
+
+---
+
+# Part 1 – MultiAgent Loan Prediction System  
+
+## 🔎 Overview
+This part implements a **multi-agent system** for credit risk dataset preprocessing, code generation, and reporting using **CrewAI**.  
+
+Agents collaborate across two branches:  
+
+- **Branch A (Data Engineering):** research → analysis → code generation → review  
+- **Branch B (Reporting):** tables → charts → suggestions → final report  
+
+Finally, both branches merge into a **Markdown report** for stakeholders.  
+
+---
+
+## ⚙️ Key Components
+
+### CSV Summarization  
+- Extracts safe metadata (columns, dtypes, missing values, samples, class balance).  
+
+### Agents  
+- **Research Agent** – collects best practices  
+- **Analyst Agent** – designs pipeline plan  
+- **Engineer Agent** – generates preprocessing code  
+- **Reviewer Agent** – checks code correctness  
+- **Suggestion Agent** – proposes improvements  
+- **Reporting Agent** – assembles tables & report  
+- **Chart Agent** – generates visualization metadata  
+
+### Tasks & Schemas  
+- Each task validates outputs with **Pydantic models** (PipelinePlan, GeneratedCode, FinalReport …).  
+- JSON outputs are stored in `artifacts/`.  
+
+### Final Report  
+- Combines knowledge package, plan, code previews, review, tables, charts, and suggestions.  
+
+---
+
+## 🚀 Workflow
+
+- **Branch A:** Research → Analysis → Generate Code → Review  
+- **Branch B:** Tables → Charts → Suggestions → Report  
+- **Merge:** Assemble unified `final_report.md`  
+![Flowchart](artifacts/FlowChart.png)
+
+---
+
+## 📑 Example Report
+The generated report includes:  
+
+- Pipeline plan with rationale  
+- Python/YAML code snippets  
+- Code review findings  
+- Dataset tables & visualizations  
+- Actionable data quality suggestions  
+- Executive summary  
+
+---
+
+## Libraries Used
+The following libraries are used in this part:
+
+- numpy
+- pandas
+- typing
+- matplotlib
+- pydantic
+- crewai
+- json
+
+---
+
+# Part 2 – Loan Prediction Using ML  
+
+## 📘 Introduction
+This part develops **machine learning models** to predict which customers are at risk of defaulting on consumer loans.  
+
+Using historical data, the goal is to **identify high-risk customers early** to support decision-making.  
+
+---
 
 ## About the Data
 The dataset contains the following features:
@@ -21,14 +149,10 @@ The dataset contains the following features:
 - CURRENT_HOUSE_YRS: Number of years the user has been living at their current address.
 - Risk_Flag: Target variable indicating whether the user has defaulted (1) or not (0).
 
-## Project Structure
-The project is organized as follows:
-
-- 21110298_21110175_FinalProjectML.ipynb: The main Jupyter notebook containing the data exploration, preprocessing, modeling, and evaluation steps.
-- README.md: This file, providing an overview of the project.
+---
 
 ## Libraries Used
-The following libraries are used in this project:
+The following libraries are used in this part:
 
 - numpy
 - pandas
@@ -38,20 +162,23 @@ The following libraries are used in this project:
 - imblearn
 - scikit-learn
 
-## Steps Involved
-1. Data Exploration: Understanding the data, visualizing relationships, and identifying patterns.
-2. Data Preprocessing: Handling missing values, encoding categorical variables, scaling numerical features, and addressing class imbalance using SMOTE.
-3. Feature Engineering: Applying PCA for dimensionality reduction.
-4. Modeling: Training and tuning various machine learning models to predict the risk of default.
-5. Evaluation: Assessing model performance using metrics such as accuracy, precision, recall, F1-score, and ROC-AUC.
+---
 
-## How to Run the Project
-1. Clone the repository.
-2. Install the required libraries: pip install -r requirements.txt
-3. Open the Jupyter notebook 21110298_21110175_FinalProjectML.ipynb and run the cells.
+## 🔧 Steps Involved
+1. **Data Exploration** – understand dataset, visualize distributions, detect issues  
+2. **Data Preprocessing** – handle missing values, encode categorical vars, scale features, balance classes  
+3. **Feature Engineering** – apply PCA for dimensionality reduction  
+4. **Modeling** – train ML models (LogReg, KNN, RandomForest, AdaBoost, GradientBoosting, Naive Bayes, ANN)  
+5. **Evaluation** – assess with accuracy, precision, recall, F1-score, ROC-AUC  
 
-## Results
-The results section will provide a detailed analysis of the model performance, including the confusion matrix, classification report, and AUC-ROC curves.
+---
+
+## 📊 Results
+- Performance comparison across models  
+- Confusion matrix, classification report  
+- ROC curves & AUC scores  
+
+---
 
 ## Future Work
 Potential improvements and further work include:
@@ -62,8 +189,8 @@ Potential improvements and further work include:
 
 ## Author
 
-- Nguyễn Văn Hào
-- Đặng Kim Thành
+- Nguyễn Văn Hào (Part 2)
+- Đặng Kim Thành (Part 1 + 2)
   
 ## Contact us
 

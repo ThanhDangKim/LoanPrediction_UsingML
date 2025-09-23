@@ -1,0 +1,26 @@
+{
+  "issues": [
+    "Missing exception handling in data loading function, which could lead to crashes if the file path is incorrect.",
+    "No check for empty dataset after loading, which may cause further processing to fail.",
+    "In the remove_outliers function, the outlier removal strategy is hardcoded for 'Income'. This may not be suitable for other features.",
+    "Standardize_data function is present but does not actually perform any operations.",
+    "Potential risk of data leakage in the preprocess function if the train-test split is done after encoding.",
+    "Feature selection is set to select 'all' features which may lead to high dimensionality issues."
+  ],
+  "severity": [
+    "high",
+    "medium",
+    "medium",
+    "low",
+    "high",
+    "medium"
+  ],
+  "suggestions": [
+    "Implement exception handling for file operations.",
+    "Add checks to ensure the dataset is not empty after loading.",
+    "Allow parameterization of the outlier removal function to handle different features.",
+    "Implement actual operations in standardize_data if needed.",
+    "Ensure train-test split occurs before encoding to prevent data leakage.",
+    "Use a more refined method to select a reasonable number of features in feature selection."
+  ]
+}

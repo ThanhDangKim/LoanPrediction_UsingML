@@ -1,0 +1,99 @@
+design_pipeline:
+  description: >
+    Advisor Agent đọc schema.json và qc_report.json, sau đó sinh pipeline_plan.yaml
+    mô tả chi tiết preprocess, feature engineering, resampling, imbalance strategy,
+    model, hyperparam, explainability, monitoring policy.
+  expected_output: >
+    pipeline_plan.yaml
+
+ingest_data:
+  description: >
+    Đọc CSV, lưu snapshot, tạo schema.json và preview 10 dòng đầu tiên.
+  expected_output: >
+    manifest.json, schema.json, preview.csv
+
+validate_data:
+  description: >
+    Phân tích dữ liệu: nulls, outliers, type mismatch. Tạo qc_report.json.
+  expected_output: >
+    qc_report.json
+
+feature_engineering:
+  description: >
+    Sinh đặc trưng domain knowledge (income_log, age_bucket, tenure_ratio, city_freq, ...),
+    lưu feature_engineering_report.json.
+  expected_output: >
+    engineered_features.csv, feature_metadata.json
+
+preprocess_data:
+  description: >
+    Đọc pipeline_plan.yaml và thực hiện preprocess, split dữ liệu thành train/val/test.
+  expected_output: >
+    preprocess_pipeline.joblib, X_train.pkl, y_train.pkl, X_val.pkl, y_val.pkl, X_test.pkl, y_test.pkl
+
+resample_data:
+  description: >
+    Cân bằng dữ liệu train bằng SMOTE/ADASYN/undersample theo plan.
+  expected_output: >
+    X_train_resampled.pkl, y_train_resampled.pkl, resample_report.json
+
+hyperparam_optimization:
+  description: >
+    Tối ưu hyperparameters theo StratifiedCV, lưu best_params.json.
+  expected_output: >
+    best_params.json, cv_results.json
+
+train_model:
+  description: >
+    Đọc pipeline_plan.yaml + best_params.json, train model và lưu metrics.json + confusion_matrix.png.
+  expected_output: >
+    model.joblib, metrics.json, confusion_matrix.png
+
+explain_model:
+  description: >
+    Sinh SHAP/LIME explanations theo plan, lưu shap_summary.json + shap_plots.png.
+  expected_output: >
+    shap_summary.json, shap_summary.png
+
+decision_policy:
+  description: >
+    Áp dụng decision rules (từ pipeline_plan.yaml) lên output model,
+    tạo decision_report.json.
+  expected_output: >
+    decision_report.json
+
+monitor_model:
+  description: >
+    Theo dõi drift và performance; nếu drift > threshold thì flag retrain.
+  expected_output: >
+    monitor_report.json, drift_flag.json
+
+retrain_model:
+  description: >
+    Khi có drift_flag, đọc pipeline_plan.yaml và retrain model với dữ liệu mới.
+  expected_output: >
+    retrain_model.joblib, retrain_metrics.json
+
+market_trend_search:
+  description: >
+    Tìm và tóm tắt các xu hướng thị trường (news, reports, macro indicators)
+    liên quan tới rủi ro tín dụng, lãi suất, thất nghiệp và ngành nghề.
+    Sử dụng web search + scrape để thu thập, lưu file JSON.
+  expected_output: >
+    market_insights.json, references.csv
+
+review_and_report:
+  description: >
+    Advisor Agent review tất cả outputs (qc_report.json, feature_metadata.json,
+    metrics.json, shap_summary.json, decision_report.json, monitor_report.json,
+    market_insights.json),
+    viết nhận xét và recommendations.
+  expected_output: >
+    advisor_review.txt
+
+final_report:
+  description: >
+    Reporting Agent kết hợp advisor_review.txt + tất cả artifacts,
+    xuất report.html + report.pdf.
+  expected_output: >
+    report.html, report.pdf

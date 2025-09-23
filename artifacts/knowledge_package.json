@@ -1,0 +1,24 @@
+{
+  "methods": [
+    "Handle missing values appropriately, using strategies like imputation.",
+    "Remove outliers to ensure data quality.",
+    "Standardize data formats for consistency.",
+    "Encode categorical variables properly, using techniques like one-hot encoding or label encoding.",
+    "Normalize or standardize numerical features to improve model performance.",
+    "Split datasets into training, validation, and testing sets to avoid overfitting.",
+    "Apply feature selection techniques to keep only relevant features.",
+    "Use exploratory data analysis (EDA) to understand data distributions and relationships."
+  ],
+  "references": [
+    "https://www.linkedin.com/pulse/comprehensive-data-preparation-machine-learning-risk-ravichandran-88edc",
+    "https://www.finalyse.com/blog/data-preparation-in-credit-modelling",
+    "https://medium.com/@gawaingan/credit-risk-1-data-cleaning-and-eda-85f8e583b5c2",
+    "https://www.leewayhertz.com/build-credit-risk-models-using-machine-learning/",
+    "https://arxiv.org/html/2409.20536v1",
+    "https://www.sciencedirect.com/science/article/abs/pii/S0957417405002885",
+    "https://www.mdpi.com/2227-9091/12/11/174",
+    "https://fastercapital.com/topics/data-preprocessing-for-credit-risk-analysis.html/1",
+    "https://www.sciencedirect.com/science/article/pii/S2405918822000095",
+    "https://www.bankingexchange.com/news-feed/item/10138-using-big-data-for-credit-risk-management"
+  ]
+}
